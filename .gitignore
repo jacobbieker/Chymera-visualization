@@ -2,3 +2,5 @@
 .idea
 *.iml
 
+# Ignore data from runs, not sure if allowed to release them or not
+data
