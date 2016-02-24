@@ -1,9 +1,9 @@
 __author__ = 'jacob'
 import visit_writer, math
 
-NX = 512
-NZ = 128
-NY = 256
+NX = 36
+NZ = 12
+NY = 36
 
 def BlendPoint(A, B, t):
     return [(1.-t)*A[0] + t*B[0],(1.-t)*A[1] + t*B[1],(1.-t)*A[2] + t*B[2]]
@@ -11,7 +11,7 @@ def BlendPoint(A, B, t):
 def GetMeshPoints(angle, angle2):
     p = []
     for k in range(NZ):
-        z = 3. * float(k) / float(NZ-1)
+        z = float(k) / float(NZ-1)
         for j in range(NY):
             y = float(j) / float(NY-1)
             for i in range(NX):
@@ -45,13 +45,13 @@ def GetMeshConnectivity():
 
 def WriteProxyDataset():
     f = open("test.visit", "wt")
-    f.write("!NBLOCKS 6\n")
+    f.write("!NBLOCKS 360\n")
     # Get the mesh 6 times and add it all up.
-    for i in range(6):
+    for i in range(360):
         pts = []
         conn = []
-        angle = math.radians(float(i) * 60.)
-        angle2 = math.radians(float(i+1) * 60.)
+        angle = math.radians(float(i) * 1.)
+        angle2 = math.radians(float(i+1) *1.)
         pts += GetMeshPoints(angle, angle2)
         conn += GetMeshConnectivity()
         var = []
