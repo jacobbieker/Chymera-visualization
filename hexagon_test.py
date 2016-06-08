@@ -1,9 +1,9 @@
 __author__ = 'jacob'
 import visit_writer, math
 
-NX = 36
-NZ = 12
-NY = 36
+NX = 256
+NZ = 66
+NY = 128
 
 def BlendPoint(A, B, t):
     return [(1.-t)*A[0] + t*B[0],(1.-t)*A[1] + t*B[1],(1.-t)*A[2] + t*B[2]]
